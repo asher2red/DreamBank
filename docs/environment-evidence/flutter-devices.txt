@@ -1,0 +1,13 @@
+Found 3 connected devices:
+  sdk gphone64 arm64 (mobile) • emulator-5554 • android-arm64  • Android 16 (API 36) (emulator)
+  macOS (desktop)             • macos         • darwin-arm64   • macOS 26.6.2 25G83 darwin-arm64
+  Chrome (web)                • chrome        • web-javascript • Google Chrome 156.0.8078.49
+
+Checking for wireless devices...
+
+Found 1 wirelessly connected device:
+  iPhone (wireless) (mobile) • [redacted-device-id] • ios • iOS 27.0.1 24A446
+
+Run "flutter emulators" to list and start any available device emulators.
+
+If you expected another device to be detected, please run "flutter doctor" to diagnose potential issues. You may also try increasing the time to wait for connected devices with the "--device-timeout" flag. Visit https://flutter.dev/setup/ for troubleshooting tips.

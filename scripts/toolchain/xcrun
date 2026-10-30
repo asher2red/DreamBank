@@ -1,0 +1,6 @@
+#!/bin/sh
+# Dart native build hooks filter DEVELOPER_DIR but preserve PATH.
+# Restore the Xcode location for child hooks without changing xcode-select.
+set -eu
+export DEVELOPER_DIR="${DEVELOPER_DIR:-/Applications/Xcode.app/Contents/Developer}"
+exec /usr/bin/xcrun "$@"

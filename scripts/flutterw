@@ -1,0 +1,10 @@
+#!/bin/sh
+# Run Flutter with this machine's mobile toolchains without changing shell settings.
+set -eu
+dreambank_script_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+export DEVELOPER_DIR="${DEVELOPER_DIR:-/Applications/Xcode.app/Contents/Developer}"
+export ANDROID_HOME="${ANDROID_HOME:-/Users/peter/Library/Android/sdk}"
+export ANDROID_SDK_ROOT="$ANDROID_HOME"
+export JAVA_HOME="${JAVA_HOME:-/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home}"
+export PATH="$dreambank_script_dir/toolchain:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator:$PATH"
+exec /opt/homebrew/bin/flutter "$@"

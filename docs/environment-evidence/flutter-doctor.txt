@@ -1,0 +1,38 @@
+[✓] Flutter (Channel stable, 3.47.8, on macOS 26.6.2 25G83 darwin-arm64, locale ko-KR) [212ms]
+    • Flutter version 3.47.8 on channel stable at /opt/homebrew/share/flutter
+    • Upstream repository https://github.com/flutter/flutter.git
+    • Framework revision 737ba8f885 (5 days ago), 2026-10-22 21:37:31 -0700
+    • Engine revision cf636b1dfb
+    • Dart version 3.13.7
+    • DevTools version 2.60.0
+    • Feature flags: enable-web, enable-linux-desktop, enable-macos-desktop, enable-windows-desktop, enable-android, enable-ios, cli-animations, enable-native-assets, enable-record-use, enable-swift-package-manager, omit-legacy-version-file, enable-lldb-debugging, enable-uiscene-migration
+
+[✓] Android toolchain - develop for Android devices (Android SDK version 37.0.0) [377ms]
+    • Android SDK at /Users/peter/Library/Android/sdk
+    • Emulator version 37.2.12.0 (build_id 16428233) (CL:N/A)
+    • Platform android-37.0, build-tools 37.0.0
+    • ANDROID_HOME = /Users/peter/Library/Android/sdk
+    • ANDROID_SDK_ROOT = /Users/peter/Library/Android/sdk
+    • Java binary at: /opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home/bin/java
+      This JDK is specified by the JAVA_HOME environment variable.
+      To manually set the JDK path, use: `flutter config --jdk-dir="path/to/jdk"`.
+    • Java version OpenJDK Runtime Environment Homebrew (build 21.0.11)
+    • All Android licenses accepted.
+
+[✓] Xcode - develop for iOS and macOS (Xcode 27.1) [573ms]
+    • Xcode at /Applications/Xcode.app/Contents/Developer
+    • Build 27A9275
+    • CocoaPods version 1.17.0
+
+[✓] Chrome - develop for the web [3ms]
+    • Chrome at /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+
+[✓] Connected device (3 available) [5.9s]
+    • iPhone (wireless) (mobile) • [redacted-device-id] • ios            • iOS 27.0.1 24A446
+    • macOS (desktop)            • macos                     • darwin-arm64   • macOS 26.6.2 25G83 darwin-arm64
+    • Chrome (web)               • chrome                    • web-javascript • Google Chrome 156.0.8078.49
+
+[✓] Network resources [841ms]
+    • All expected network resources are available.
+
+• No issues found!

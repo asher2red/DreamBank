@@ -1,0 +1,8 @@
+  compiling builders/aot
+  12s compiling builders/aot
+  0s drift_dev on 128 inputs; lib/app/app.dart
+  4s drift_dev on 128 inputs: 1 output; spent 2s analyzing; lib/app/router.dart
+  4s drift_dev on 128 inputs: 32 skipped, 62 output, 34 no-op; spent 3s analyzing
+  0s source_gen:combining_builder on 64 inputs; lib/app/app.dart
+  0s source_gen:combining_builder on 64 inputs: 32 skipped, 1 output, 31 no-op
+  Built with build_runner/aot in 17s; wrote 63 outputs.

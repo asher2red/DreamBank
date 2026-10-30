@@ -1,0 +1,33 @@
+Running Gradle task 'assembleDebug'...
+WARNING: The SDK Manager CLI tool (sdkmanager) is deprecated. Android CLI will be used instead.
+The 'android' binary can also be found in the cmdline-tools directory, and 'android sdk' is the replacement for 'sdkmanager'.
+To learn more about the Android CLI and how to use it, see the documentation (https://d.android.com/tools/agents/android-cli)
+
+Downloading Android CLI...
+Unpacking embedded installation...
+
+Terms of Service and License Agreement for the Android Software Development Kit
+
+https://developer.android.com/studio/terms
+
+Google collects usage data for the Android CLI, such as commands, sub-commands, and flags used. This data does not include custom parameters or identifiable information. This information helps improve the tool and is collected in accordance with Google's Privacy Policy.
+
+https://policies.google.com/privacy
+
+Disable Android CLI metrics collection by using the --no-metrics flag.
+
+Tip: For the best experience using Android CLI with agents, we strongly recommend running android init to install the necessary skills and resources.
+
+https://dl.google.com/android/repository/android-ndk-r28c-darwin.zip...
+
+Unzipping ndk/28.2.13676358......
+Warning: SDK processing. This version only understands SDK XML versions up to 3 but an SDK XML file of version 4 was encountered. This can happen if you use versions of Android Studio and the command-line tools that were released at different times.
+Checking the license for package Android SDK Platform 35 in /Users/peter/Library/Android/sdk/licenses
+License for package Android SDK Platform 35 accepted.
+Preparing "Install Android SDK Platform 35 (revision 2)".
+"Install Android SDK Platform 35 (revision 2)" ready.
+Installing Android SDK Platform 35 in /Users/peter/Library/Android/sdk/platforms/android-35
+"Install Android SDK Platform 35 (revision 2)" complete.
+"Install Android SDK Platform 35 (revision 2)" finished.
+Running Gradle task 'assembleDebug'...                            445.2s
+✓ Built build/app/outputs/flutter-apk/app-debug.apk

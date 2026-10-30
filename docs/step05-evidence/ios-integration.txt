@@ -1,0 +1,6 @@
+00:00 +0: loading /Users/peter/workSpace/DreamBank/integration_test/p0_flow_test.dart
+Running Xcode build...
+Xcode build done.                                           13.9s
+00:00 +0: P0 changes persist after rebuilding the entire application scope
+00:04 +1: (tearDownAll)
+00:05 +1: All tests passed!

@@ -1,0 +1,65 @@
+[
+  {
+    "path": "assets/brand/app_icon_master.png",
+    "width": 1254,
+    "height": 1254,
+    "bytes": 1398940,
+    "format": "PNG",
+    "color_type": 2,
+    "alpha_range": null,
+    "sha256": "ba60ee52e692867d8475d0df8e346332fa67ec852e6eee3fbfa2e1535fe6d8ff"
+  },
+  {
+    "path": "assets/brand/dreambank_symbol.png",
+    "width": 1254,
+    "height": 1254,
+    "bytes": 218829,
+    "format": "PNG",
+    "color_type": 6,
+    "alpha_range": [
+      0,
+      255
+    ],
+    "sha256": "34443d02a7f733c99e1ab8eec80bacbba5415fb441e54d4870b207dabec75f8b"
+  },
+  {
+    "path": "assets/images/originals/account_card_background.png",
+    "width": 1586,
+    "height": 992,
+    "bytes": 1859885,
+    "format": "PNG",
+    "color_type": 2,
+    "alpha_range": null,
+    "sha256": "0c570aa6e696deb2024fe93ecabb62e00d708dce65bc74f89578952a437fab94"
+  },
+  {
+    "path": "assets/images/originals/dream_vault.png",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 2072865,
+    "format": "PNG",
+    "color_type": 2,
+    "alpha_range": null,
+    "sha256": "1f38e85152cd9d39b5d4eb2969d2906dd38028faa61800cb71f90b0b1d153363"
+  },
+  {
+    "path": "assets/images/originals/future_letter.png",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 2275461,
+    "format": "PNG",
+    "color_type": 2,
+    "alpha_range": null,
+    "sha256": "e41578b25338e8a88ca61927d1997b07cec56e5457218c272cdde7fde7dc13aa"
+  },
+  {
+    "path": "assets/images/originals/home_serenity.png",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 2240894,
+    "format": "PNG",
+    "color_type": 2,
+    "alpha_range": null,
+    "sha256": "7929b2a65c34ae344ec06993ae8ea4ea1c0f7a55586a87765e1cd9a82bcab96d"
+  }
+]

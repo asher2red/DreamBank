@@ -1,0 +1,3 @@
+Android native startup: home rendered after storage initialization.
+Process restart: schema v1, single account unchanged including creation timestamp.
+Integration test records: no dream or letter rows left behind.

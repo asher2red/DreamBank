@@ -1,0 +1,449 @@
+{
+  "_meta": {
+    "description": "This file contains a serialized version of schema entities for drift.",
+    "version": "1.3.0"
+  },
+  "options": {
+    "store_date_time_values_as_text": false
+  },
+  "entities": [
+    {
+      "id": 0,
+      "references": [],
+      "type": "table",
+      "data": {
+        "name": "account_settings",
+        "was_declared_in_moor": false,
+        "columns": [
+          {
+            "name": "id",
+            "getter_name": "id",
+            "moor_type": "int",
+            "nullable": false,
+            "customConstraints": null,
+            "default_dart": null,
+            "default_client_dart": null,
+            "dsl_features": []
+          },
+          {
+            "name": "account_nickname",
+            "getter_name": "accountNickname",
+            "moor_type": "string",
+            "nullable": false,
+            "customConstraints": null,
+            "default_dart": null,
+            "default_client_dart": null,
+            "dsl_features": []
+          },
+          {
+            "name": "virtual_balance",
+            "getter_name": "virtualBalance",
+            "moor_type": "int",
+            "nullable": false,
+            "customConstraints": null,
+            "default_dart": "const CustomExpression('1000000000')",
+            "default_client_dart": null,
+            "dsl_features": []
+          },
+          {
+            "name": "currency_code",
+            "getter_name": "currencyCode",
+            "moor_type": "string",
+            "nullable": false,
+            "customConstraints": null,
+            "default_dart": "const CustomExpression('\\'KRW\\'')",
+            "default_client_dart": null,
+            "dsl_features": []
+          },
+          {
+            "name": "created_at",
+            "getter_name": "createdAt",
+            "moor_type": "int",
+            "nullable": false,
+            "customConstraints": null,
+            "default_dart": null,
+            "default_client_dart": null,
+            "dsl_features": []
+          },
+          {
+            "name": "updated_at",
+            "getter_name": "updatedAt",
+            "moor_type": "int",
+            "nullable": false,
+            "customConstraints": null,
+            "default_dart": null,
+            "default_client_dart": null,
+            "dsl_features": []
+          }
+        ],
+        "is_virtual": false,
+        "without_rowid": false,
+        "constraints": [
+          "CHECK (id = 1)",
+          "CHECK (length(trim(account_nickname)) > 0)",
+          "CHECK (virtual_balance BETWEEN 0 AND 999999999999)",
+          "CHECK (currency_code = 'KRW')",
+          "CHECK (created_at >= 0 AND updated_at >= 0)"
+        ],
+        "explicit_pk": [
+          "id"
+        ]
+      }
+    },
+    {
+      "id": 1,
+      "references": [],
+      "type": "table",
+      "data": {
+        "name": "mood_entries",
+        "was_declared_in_moor": false,
+        "columns": [
+          {
+            "name": "id",
+            "getter_name": "id",
+            "moor_type": "int",
+            "nullable": false,
+            "customConstraints": null,
+            "defaultConstraints": "PRIMARY KEY AUTOINCREMENT",
+            "dialectAwareDefaultConstraints": {
+              "sqlite": "PRIMARY KEY AUTOINCREMENT"
+            },
+            "default_dart": null,
+            "default_client_dart": null,
+            "dsl_features": [
+              "auto-increment"
+            ]
+          },
+          {
+            "name": "mood_type",
+            "getter_name": "moodType",
+            "moor_type": "string",
+            "nullable": false,
+            "customConstraints": null,
+            "default_dart": null,
+            "default_client_dart": null,
+            "dsl_features": []
+          },
+          {
+            "name": "created_at",
+            "getter_name": "createdAt",
+            "moor_type": "int",
+            "nullable": false,
+            "customConstraints": null,
+            "default_dart": null,
+            "default_client_dart": null,
+            "dsl_features": []
+          }
+        ],
+        "is_virtual": false,
+        "without_rowid": false,
+        "constraints": [
+          "CHECK (mood_type IN ('tired', 'neutral', 'okay', 'happy'))",
+          "CHECK (created_at >= 0)"
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "references": [],
+      "type": "table",
+      "data": {
+        "name": "dream_items",
+        "was_declared_in_moor": false,
+        "columns": [
+          {
+            "name": "id",
+            "getter_name": "id",
+            "moor_type": "int",
+            "nullable": false,
+            "customConstraints": null,
+            "defaultConstraints": "PRIMARY KEY AUTOINCREMENT",
+            "dialectAwareDefaultConstraints": {
+              "sqlite": "PRIMARY KEY AUTOINCREMENT"
+            },
+            "default_dart": null,
+            "default_client_dart": null,
+            "dsl_features": [
+              "auto-increment"
+            ]
+          },
+          {
+            "name": "title",
+            "getter_name": "title",
+            "moor_type": "string",
+            "nullable": false,
+            "customConstraints": null,
+            "default_dart": null,
+            "default_client_dart": null,
+            "dsl_features": []
+          },
+          {
+            "name": "description",
+            "getter_name": "description",
+            "moor_type": "string",
+            "nullable": false,
+            "customConstraints": null,
+            "default_dart": "const CustomExpression('\\'\\'')",
+            "default_client_dart": null,
+            "dsl_features": []
+          },
+          {
+            "name": "estimated_cost",
+            "getter_name": "estimatedCost",
+            "moor_type": "int",
+            "nullable": true,
+            "customConstraints": null,
+            "default_dart": null,
+            "default_client_dart": null,
+            "dsl_features": []
+          },
+          {
+            "name": "created_at",
+            "getter_name": "createdAt",
+            "moor_type": "int",
+            "nullable": false,
+            "customConstraints": null,
+            "default_dart": null,
+            "default_client_dart": null,
+            "dsl_features": []
+          },
+          {
+            "name": "updated_at",
+            "getter_name": "updatedAt",
+            "moor_type": "int",
+            "nullable": false,
+            "customConstraints": null,
+            "default_dart": null,
+            "default_client_dart": null,
+            "dsl_features": []
+          }
+        ],
+        "is_virtual": false,
+        "without_rowid": false,
+        "constraints": [
+          "CHECK (length(trim(title)) > 0)",
+          "CHECK (estimated_cost IS NULL OR estimated_cost BETWEEN 0 AND 999999999999)",
+          "CHECK (created_at >= 0 AND updated_at >= 0)"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "references": [],
+      "type": "table",
+      "data": {
+        "name": "future_letters",
+        "was_declared_in_moor": false,
+        "columns": [
+          {
+            "name": "id",
+            "getter_name": "id",
+            "moor_type": "int",
+            "nullable": false,
+            "customConstraints": null,
+            "defaultConstraints": "PRIMARY KEY AUTOINCREMENT",
+            "dialectAwareDefaultConstraints": {
+              "sqlite": "PRIMARY KEY AUTOINCREMENT"
+            },
+            "default_dart": null,
+            "default_client_dart": null,
+            "dsl_features": [
+              "auto-increment"
+            ]
+          },
+          {
+            "name": "title",
+            "getter_name": "title",
+            "moor_type": "string",
+            "nullable": false,
+            "customConstraints": null,
+            "default_dart": null,
+            "default_client_dart": null,
+            "dsl_features": []
+          },
+          {
+            "name": "content",
+            "getter_name": "content",
+            "moor_type": "string",
+            "nullable": false,
+            "customConstraints": null,
+            "default_dart": null,
+            "default_client_dart": null,
+            "dsl_features": []
+          },
+          {
+            "name": "created_at",
+            "getter_name": "createdAt",
+            "moor_type": "int",
+            "nullable": false,
+            "customConstraints": null,
+            "default_dart": null,
+            "default_client_dart": null,
+            "dsl_features": []
+          },
+          {
+            "name": "unlock_at",
+            "getter_name": "unlockAt",
+            "moor_type": "string",
+            "nullable": true,
+            "customConstraints": null,
+            "default_dart": null,
+            "default_client_dart": null,
+            "dsl_features": []
+          },
+          {
+            "name": "updated_at",
+            "getter_name": "updatedAt",
+            "moor_type": "int",
+            "nullable": false,
+            "customConstraints": null,
+            "default_dart": null,
+            "default_client_dart": null,
+            "dsl_features": []
+          }
+        ],
+        "is_virtual": false,
+        "without_rowid": false,
+        "constraints": [
+          "CHECK (length(trim(title)) > 0 AND length(trim(content)) > 0)",
+          "CHECK (unlock_at IS NULL OR (length(unlock_at) = 10 AND unlock_at GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'))",
+          "CHECK (created_at >= 0 AND updated_at >= 0)"
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "references": [
+        1
+      ],
+      "type": "index",
+      "data": {
+        "on": 1,
+        "name": "mood_latest",
+        "sql": null,
+        "unique": false,
+        "columns": [
+          {
+            "column": "created_at",
+            "order_by": null
+          },
+          {
+            "column": "id",
+            "order_by": null
+          }
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "references": [
+        2
+      ],
+      "type": "index",
+      "data": {
+        "on": 2,
+        "name": "dream_recent",
+        "sql": null,
+        "unique": false,
+        "columns": [
+          {
+            "column": "updated_at",
+            "order_by": null
+          },
+          {
+            "column": "id",
+            "order_by": null
+          }
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "references": [
+        3
+      ],
+      "type": "index",
+      "data": {
+        "on": 3,
+        "name": "letter_recent",
+        "sql": null,
+        "unique": false,
+        "columns": [
+          {
+            "column": "updated_at",
+            "order_by": null
+          },
+          {
+            "column": "id",
+            "order_by": null
+          }
+        ]
+      }
+    }
+  ],
+  "fixed_sql": [
+    {
+      "name": "account_settings",
+      "sql": [
+        {
+          "dialect": "sqlite",
+          "sql": "CREATE TABLE IF NOT EXISTS \"account_settings\" (\"id\" INTEGER NOT NULL, \"account_nickname\" TEXT NOT NULL, \"virtual_balance\" INTEGER NOT NULL DEFAULT 1000000000, \"currency_code\" TEXT NOT NULL DEFAULT 'KRW', \"created_at\" INTEGER NOT NULL, \"updated_at\" INTEGER NOT NULL, PRIMARY KEY (\"id\"), CHECK (id = 1), CHECK (length(trim(account_nickname)) > 0), CHECK (virtual_balance BETWEEN 0 AND 999999999999), CHECK (currency_code = 'KRW'), CHECK (created_at >= 0 AND updated_at >= 0));"
+        }
+      ]
+    },
+    {
+      "name": "mood_entries",
+      "sql": [
+        {
+          "dialect": "sqlite",
+          "sql": "CREATE TABLE IF NOT EXISTS \"mood_entries\" (\"id\" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, \"mood_type\" TEXT NOT NULL, \"created_at\" INTEGER NOT NULL, CHECK (mood_type IN ('tired', 'neutral', 'okay', 'happy')), CHECK (created_at >= 0));"
+        }
+      ]
+    },
+    {
+      "name": "dream_items",
+      "sql": [
+        {
+          "dialect": "sqlite",
+          "sql": "CREATE TABLE IF NOT EXISTS \"dream_items\" (\"id\" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, \"title\" TEXT NOT NULL, \"description\" TEXT NOT NULL DEFAULT '', \"estimated_cost\" INTEGER NULL, \"created_at\" INTEGER NOT NULL, \"updated_at\" INTEGER NOT NULL, CHECK (length(trim(title)) > 0), CHECK (estimated_cost IS NULL OR estimated_cost BETWEEN 0 AND 999999999999), CHECK (created_at >= 0 AND updated_at >= 0));"
+        }
+      ]
+    },
+    {
+      "name": "future_letters",
+      "sql": [
+        {
+          "dialect": "sqlite",
+          "sql": "CREATE TABLE IF NOT EXISTS \"future_letters\" (\"id\" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, \"title\" TEXT NOT NULL, \"content\" TEXT NOT NULL, \"created_at\" INTEGER NOT NULL, \"unlock_at\" TEXT NULL, \"updated_at\" INTEGER NOT NULL, CHECK (length(trim(title)) > 0 AND length(trim(content)) > 0), CHECK (unlock_at IS NULL OR (length(unlock_at) = 10 AND unlock_at GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]')), CHECK (created_at >= 0 AND updated_at >= 0));"
+        }
+      ]
+    },
+    {
+      "name": "mood_latest",
+      "sql": [
+        {
+          "dialect": "sqlite",
+          "sql": "CREATE INDEX mood_latest ON mood_entries (created_at, id)"
+        }
+      ]
+    },
+    {
+      "name": "dream_recent",
+      "sql": [
+        {
+          "dialect": "sqlite",
+          "sql": "CREATE INDEX dream_recent ON dream_items (updated_at, id)"
+        }
+      ]
+    },
+    {
+      "name": "letter_recent",
+      "sql": [
+        {
+          "dialect": "sqlite",
+          "sql": "CREATE INDEX letter_recent ON future_letters (updated_at, id)"
+        }
+      ]
+    }
+  ]
+}
