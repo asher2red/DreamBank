@@ -52,3 +52,6 @@ app.*.map.json
 *.sqlite-journal
 *.sqlite-wal
 *.sqlite-shm
+
+# Local Android Kotlin caches
+/android/.kotlin/

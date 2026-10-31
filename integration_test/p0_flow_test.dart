@@ -3,7 +3,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:dreambank/main.dart' as app;
+import 'package:dreambank/app/app.dart';
+import 'package:dreambank/features/auth/auth_service.dart';
 import 'package:dreambank/core/utils/currency.dart';
 import 'package:dreambank/data/repositories/settings_repository.dart';
 import 'package:dreambank/data/storage_providers.dart';
@@ -26,7 +27,19 @@ void main() {
   testWidgets(
     'P0 changes persist after rebuilding the entire application scope',
     (tester) async {
-      app.main();
+      runApp(
+        ProviderScope(
+          overrides: [
+            // This test exercises local persistence, not an external OAuth account.
+            loginProfileProvider.overrideWith(
+              (ref) => Stream.value(
+                const LoginProfile('integration-user', '테스트 사용자', null),
+              ),
+            ),
+          ],
+          child: const DreamBankApp(),
+        ),
+      );
       await tester.pumpAndSettle();
       var container = scope(tester);
       final original = await container.read(accountRepositoryProvider).get();
@@ -84,7 +97,19 @@ void main() {
         expect(find.text('₩2,000,000,000'), findsOneWidget);
         await tester.pumpWidget(const SizedBox.shrink());
         await tester.pumpAndSettle();
-        app.main();
+        runApp(
+          ProviderScope(
+            overrides: [
+              // This test exercises local persistence, not an external OAuth account.
+              loginProfileProvider.overrideWith(
+                (ref) => Stream.value(
+                  const LoginProfile('integration-user', '테스트 사용자', null),
+                ),
+              ),
+            ],
+            child: const DreamBankApp(),
+          ),
+        );
         await tester.pumpAndSettle();
         container = scope(tester);
         expect(find.text('검증용 여유 계좌'), findsOneWidget);

@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../features/auth/login_screen.dart';
+import '../features/auth/auth_service.dart';
+import '../features/auth/guest_session.dart';
 import '../core/widgets/app_shell.dart';
 import '../core/widgets/app_state_view.dart';
 import '../features/home/presentation/home_screen.dart';
@@ -58,6 +61,11 @@ final routerProvider = Provider<GoRouter>((ref) {
                 builder: (_, _) => const AccountScreen(),
                 routes: [
                   GoRoute(
+                    path: 'login',
+                    parentNavigatorKey: rootKey,
+                    builder: (_, _) => const LoginScreen(),
+                  ),
+                  GoRoute(
                     path: 'edit',
                     parentNavigatorKey: rootKey,
                     builder: (_, _) => const AccountEditScreen(),
@@ -75,6 +83,18 @@ final routerProvider = Provider<GoRouter>((ref) {
       ),
     ],
   );
+  ref.listen(loginProfileProvider, (previous, next) {
+    if (next is AsyncData<LoginProfile?> &&
+        previous?.asData?.value?.uid != next.value?.uid) {
+      if (next.value != null) {
+        ref.read(guestSessionProvider.notifier).end();
+      }
+      router.go('/home');
+    }
+  });
+  ref.listen(guestSessionProvider, (previous, next) {
+    if (previous != next) router.go('/home');
+  });
   ref.onDispose(router.dispose);
   return router;
 });

@@ -4,6 +4,11 @@ plugins {
     id("dev.flutter.flutter-gradle-plugin")
 }
 
+// Keep local-only builds runnable before Firebase is configured.
+if (file("google-services.json").exists()) {
+    apply(plugin = "com.google.gms.google-services")
+}
+
 android {
     namespace = "dev.dreambank.dreambank"
     compileSdk = flutter.compileSdkVersion

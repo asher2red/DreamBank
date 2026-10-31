@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:dreambank/features/auth/auth_service.dart';
+
 import '../support/test_app.dart';
 
 import 'package:dreambank/core/errors/storage_failure.dart';
@@ -56,6 +58,10 @@ void main() {
       await tester.pumpWidget(
         ProviderScope(
           overrides: [
+            loginProfileProvider.overrideWith(
+              (ref) =>
+                  Stream.value(const LoginProfile("test-user", "테스트", null)),
+            ),
             storageReadyProvider.overrideWith(
               (ref) async =>
                   throw const StorageFailure(StorageFailureKind.incompatible),

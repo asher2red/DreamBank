@@ -81,3 +81,10 @@ sh scripts/flutterw test integration_test/storage_smoke_test.dart -d <device-id>
 - [Step 05 결과](docs/step05-report.md)
 
 - [이미지 적용 결과 및 화면](docs/artwork-integration-report.md)
+
+- [내 계좌 개편 결과](docs/account-redesign-report.md)
+
+- [계좌 상세 UI 고도화](docs/account-detail-report.md)
+
+Google·Apple 로그인 구현과 실제 프로젝트 연결 방법: [인증 설정 안내](docs/auth-setup.md).
+앱 시작 시 Google·Apple 로그인 또는 게스트 이용을 선택합니다. 게스트는 Firebase 없이 홈에 진입할 수 있습니다. Google·Apple은 Firebase 연결 후 `--dart-define=FIREBASE_ENABLED=true`로 실행합니다. 설정이 없으면 로그인 화면에서 서비스 연결 준비 상태를 안내합니다.

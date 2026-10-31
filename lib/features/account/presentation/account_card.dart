@@ -3,14 +3,16 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_tokens.dart';
-import '../../../core/utils/currency.dart';
+import 'account_balance.dart';
 import '../../../core/constants/app_assets.dart';
 import '../../../core/widgets/app_card.dart';
 import '../../../core/widgets/app_state_view.dart';
+import '../../../core/widgets/brand_mark.dart';
 import '../../../data/storage_providers.dart';
 
 class AccountCard extends ConsumerWidget {
-  const AccountCard({super.key});
+  const AccountCard({this.showDisclosure = true, super.key});
+  final bool showDisclosure;
   @override
   Widget build(BuildContext context, WidgetRef ref) => AppCard(
     backgroundAsset: AppAssets.accountBackground,
@@ -30,54 +32,40 @@ class AccountCard extends ConsumerWidget {
           data: (account) => Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                '상상 속 여유가 머무는 곳',
-                style: TextStyle(color: AppColors.accent),
-              ),
+              if (showDisclosure)
+                const Text(
+                  '상상 속 여유가 머무는 곳',
+                  style: TextStyle(color: AppColors.accent),
+                )
+              else
+                Row(
+                  children: [
+                    const Expanded(child: BrandWordmark()),
+                    const SizedBox(width: AppSpacing.sm),
+                    Text(
+                      account.currencyCode,
+                      style: const TextStyle(color: AppColors.accent),
+                    ),
+                  ],
+                ),
               const SizedBox(height: AppSpacing.xl),
               Text(
                 account.accountNickname,
                 style: Theme.of(context).textTheme.titleLarge,
               ),
               const SizedBox(height: AppSpacing.md),
-              Semantics(
-                label: '가상 잔고 ${formatWon(account.virtualBalance)}',
-                child: ExcludeSemantics(
-                  child: LayoutBuilder(
-                    builder: (context, constraints) {
-                      final amount = formatWon(account.virtualBalance);
-                      var style = Theme.of(context).textTheme.displaySmall!;
-                      final scaler = MediaQuery.textScalerOf(context);
-                      final measure = TextPainter(
-                        text: TextSpan(text: amount, style: style),
-                        textDirection: Directionality.of(context),
-                        textScaler: scaler,
-                      )..layout();
-                      if (scaler.scale(1) <= 1 &&
-                          measure.width > constraints.maxWidth) {
-                        style = style.copyWith(
-                          fontSize:
-                              (style.fontSize! *
-                                      (constraints.maxWidth - 1) /
-                                      measure.width)
-                                  .clamp(24.0, 40.0),
-                        );
-                      }
-                      measure.dispose();
-                      return SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Text(
-                          amount,
-                          key: const ValueKey('virtual-balance'),
-                          style: style,
-                        ),
-                      );
-                    },
-                  ),
-                ),
+              if (!showDisclosure) ...[
+                const Text('Dream Money 잔고'),
+                const SizedBox(height: AppSpacing.sm),
+              ],
+              AccountBalance(
+                amount: account.virtualBalance,
+                label: showDisclosure ? '가상 잔고' : 'Dream Money 잔고',
               ),
-              const SizedBox(height: AppSpacing.xl),
-              const Text('가상 잔고 · 실제 금융 자산이 아니에요.'),
+              if (showDisclosure) ...[
+                const SizedBox(height: AppSpacing.xl),
+                const Text('가상 잔고 · 실제 금융 자산이 아니에요.'),
+              ],
             ],
           ),
         ),

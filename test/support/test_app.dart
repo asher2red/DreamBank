@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:dreambank/features/auth/auth_service.dart';
+
 import 'package:drift/native.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:dreambank/data/database/app_database.dart';
@@ -28,12 +30,18 @@ class MemorySettings implements SettingsStore {
 }
 
 ProviderContainer testContainer({
+  Stream<LoginProfile?> Function()? profiles,
   MemorySettings? settings,
   AccountRepository Function(AppDatabase)? account,
   DateTime Function()? clock,
   Future<void> Function(Ref)? initialization,
 }) => ProviderContainer(
   overrides: [
+    loginProfileProvider.overrideWith(
+      (ref) =>
+          profiles?.call() ??
+          Stream.value(const LoginProfile('test-user', '테스트 사용자', null)),
+    ),
     if (initialization != null)
       storageReadyProvider.overrideWith(initialization),
     databaseProvider.overrideWith((ref) {
